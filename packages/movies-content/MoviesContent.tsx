@@ -45,7 +45,7 @@ const movies = [
   },
 ];
 
-const MoviesContent = () => {
+export const MoviesContent = () => {
   return (
     <Grid
       sx={{
@@ -58,5 +58,3 @@ const MoviesContent = () => {
     </Grid>
   );
 };
-
-export default MoviesContent;
