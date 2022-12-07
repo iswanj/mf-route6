@@ -12,6 +12,8 @@ import {
 } from "@mantine/core";
 import { BrowserRouter, Outlet, Link, Routes, Route } from "react-router-dom";
 
+import { useStore } from "store";
+
 export type Route = {
   element: React.FunctionComponent;
   path: string;
@@ -54,6 +56,7 @@ export const AppShell: React.FunctionComponent<{
   navLinks: NavLink[];
   colorScheme?: "light" | "dark";
 }> = ({ title, colorScheme, routes, navLinks }) => {
+  const { movies } = useStore();
   return (
     <BrowserRouter>
       <MantineProvider
@@ -85,7 +88,8 @@ export const AppShell: React.FunctionComponent<{
                 },
               })}
             >
-              <Title>{title}</Title>
+              <Title sx={{ flexGrow: 1 }}>{title}</Title>
+              <Text size="xl">{movies.length} selected</Text>
             </Header>
           }
         >
